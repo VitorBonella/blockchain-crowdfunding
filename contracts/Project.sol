@@ -10,14 +10,13 @@ contract Project{
     string private image_;
     string private description_;
 
-    uint public constant duration = 30;
     uint public immutable end;
 
     receive() external payable {}
 
     fallback() external payable {}
 
-    constructor(address _owner, string memory _image, string memory _description) {
+    constructor(address _owner, string memory _image, string memory _description, uint duration) {
         owner_ = _owner;
         image_ = _image;
         description_ = _description;
@@ -47,12 +46,13 @@ contract Project{
         
     }
 
-    modifier valid_withdraw{
+    modifier valid_withdraw(address call_addr){
         require(block.timestamp >= end,"Error: Project Locked");
+        require(call_addr == this.owner(),"Only Owner can collect");
         _;
     }
 
-    function withdraw() public valid_withdraw{
+    function withdraw(address call_addr) public valid_withdraw(call_addr){
 
         opened_ = false;
         (bool sent,) = owner_.call{value: address(this).balance}("");
@@ -64,21 +64,33 @@ contract Project{
 contract ProjectFactory{
 
     event NewDonation(address sender, uint amount);
-    event UnlockedProject(address project);
+    event NewProject();
+    event FundsSent();
 
     mapping (address => Project) private projects;
     address payable[] private project_list_;
 
     uint public total_projects;
 
-    function newProject(string memory _image, string memory _description) public {
-        Project new_project = new Project(msg.sender, _image,_description);
+    modifier inputCheck(string memory _image, string memory _description,uint _duration){
+        require(keccak256(abi.encode(_image)) != keccak256(abi.encode("")),"Please provide a image link");
+        require(keccak256(abi.encode(_description)) != keccak256(abi.encode("")),"Please provide a description");
+        require(_duration >= 60*60, "Please give a minimum of 60 minutes duration");
+        _;
+    }
+
+
+    function newProject(string memory _image, string memory _description, uint _duration) public inputCheck(_image,_description,_duration){
+        Project new_project = new Project(msg.sender, _image,_description, _duration);
 
         ++total_projects;
 
         project_list_.push(payable(address(new_project)));
         projects[address(new_project)] = new_project;
+
+        emit NewProject();
     }
+
 
     function donate(address payable _to) public payable{
 
@@ -121,8 +133,9 @@ contract ProjectFactory{
         Project project = Project(projects[project_addr]);
         require(project.opened() == true,"Project already withdrew");
 
-        project.withdraw();
+        project.withdraw(msg.sender);
         
+        emit FundsSent();
     }
 
 }

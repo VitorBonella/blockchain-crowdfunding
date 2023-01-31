@@ -77,9 +77,9 @@ export async function updateNoteList(project_list) {
         balance_amount = ethers.utils.formatEther(balance_amount)
 
         let project_addr = project.slice(0, 10) + "..."
-        console.log(balance_amount)
+
         let infos = await get_project_info(project)
-        console.log(infos)
+
        
         //se tiver aberto mostra
         if(infos[3]){
@@ -131,10 +131,10 @@ export async function updateLastDonation(){
         let sd = dn['args']['sender'].slice(0, 10) + "..."
 
         if(cont % 2 == 0){
-            donate_html = _createDonationItemHTML("",sd,am,"11;00")
+            donate_html = _createDonationItemHTML("",sd,am,new Date().toUTCString())
         }
         else{
-            donate_html = _createDonationItemHTML("darker",sd,am,"11;00")
+            donate_html = _createDonationItemHTML("darker",sd,am,new Date().toUTCString())
         }
         
         donationListContainer.insertAdjacentHTML("beforeend", donate_html);
