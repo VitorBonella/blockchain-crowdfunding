@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="navbar">
+        <img src="../assets/logo-com-nome.png" class="logo">
+
+        <button class="login" id="connect-button" type="submit" onclick="">
+            <a class="texto-login">Login</a>
+        </button>
+        </div>
+
+        <div class="content-space">
+            <div class="new-donation">
+                Last Donations:
+                <div class="container">
+
+                    <p>Adress: 0x3242342. Just Donated 0.434 goerli to Any Project</p>
+                    <span class="time-right">11:00</span>
+                  </div>
+                  
+                  <div class="container darker">
+                    
+                    <p>Adress: 0x3242342. Just Donated 0.434 goerli to Any Project</p>
+                    <span class="time-right">11:01</span>
+                  </div>
+                  
+                  <div class="container">
+
+                    <p>Adress: 0x3242342. Just Donated 0.434 goerli to Any Project</p>
+                    <span class="time-right">11:02</span>
+                  </div>
+                  
+                  <div class="container darker">
+
+                    <p>Adress: 0x3242342. Just Donated 0.434 goerli to Any Project</p>
+                    <span class="time-right">11:05</span>
+                  </div>
+
+
+            </div>
+            <div class="box-list">
+            </div>
+            <button class="new-project" onclick="openForm()">New Project</button>
+        </div>
+        
+
+        <div class="loginPopup">
+          <div class="formPopup" id="popupForm">
+            <form class="formContainer">
+              <h2>New Project</h2>
+              <label for="url-image">
+                <strong>Image Url</strong>
+              </label>
+              <input type="text" id="url-image" placeholder="Type Image Url" name="url-image" required>
+              <label for="desc">
+                <strong>Description</strong>
+              </label>
+              <input type="text" id="desc" placeholder="Your Project Description" name="desc" required>
+              <button type="button" class="btn" id="submit-np">Create Project</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
+        </div>
+
+    </div>
+
+
+    <script>
+      function openForm() {
+        document.getElementById("popupForm").style.display = "block";
+      }
+      function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+      }
+    </script>
+    <script type='text/javascript' > 
+        var ProjectContract = undefined
+    </script>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    </script>
+    <script src="../js/metamask_login.js" type="module"></script>
+    <script src="../js/ProjectContractAPI.js" type="module"></script>
+    <script src="../js/ProjectView.js" type="module"></script>
+    <script src="../js/App.js" type="module"></script>
+
+
+</body>
+
+</html>

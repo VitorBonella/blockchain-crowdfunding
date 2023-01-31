@@ -1,0 +1,332 @@
+body {
+    background-color:#E0DFDF;
+}
+
+.logo {
+
+    height: auto; 
+    width: auto; 
+    max-width: 400px; 
+    max-height: 400px;
+
+    top: 5%;
+    left: 5%;
+}
+
+.navbar{
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.login {
+
+    height: 60px;
+    margin-top: 41.42px;
+
+    background: #393434;
+    border-radius: 50px;
+}
+
+.texto-login {
+
+
+    
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+    color: #E3D3D3;
+}
+
+.box-list {
+
+
+    background-color:#E0DFDF;
+}
+
+.box {
+
+    margin-left: auto;
+    margin-right: auto;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 0px;
+
+
+    width: 700px;
+    height: 200px;
+
+    margin-top: 15px;
+
+    background: #FCFCFC;
+    border-radius: 25px;
+}
+
+.box-image {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: #000000;
+}
+
+.box-desc {
+    position: relative;
+    width: 400px;
+    height: 70px;
+
+    top:20%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+}
+
+.box-info {
+    position: relative;
+    width: 230px;
+    height: 50px;
+
+    white-space: pre-line;
+
+    top: 20%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+}
+
+.donate-btn{
+    position: relative;
+    width: 145px;
+    height: 40px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: #A3D080;
+    border-radius: 20px;
+}
+
+.image-space {
+
+
+   grid-row-start: 1;
+   grid-column-start: 1;
+
+   grid-row-end: 2;
+   grid-column-end: 2;
+   
+}
+.content-space {
+
+
+   grid-row-start: 1;
+   grid-column-start: 2;
+
+   grid-row-end: 2;
+   grid-column-end: 4;
+   
+}
+
+.content-grid {
+    display: grid;
+    position: relative;
+
+    grid-template-rows:  1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    
+    gap: 0px;
+    height: 100%;
+}
+
+.desc-space {
+
+
+    grid-row-start: 1;
+    grid-column-start: 1;
+ 
+    grid-row-end: 2;
+    grid-column-end: 3;
+    
+ }
+.info-space {
+ 
+
+    grid-row-start: 2;
+    grid-column-start: 1;
+ 
+    grid-row-end: 3;
+    grid-column-end: 2;
+    
+ }
+.btn-space {
+ 
+
+    grid-row-start: 2;
+    grid-column-start: 2;
+ 
+    grid-row-end: 3;
+    grid-column-end: 3;
+    
+ }
+
+ .donate-text {
+
+    position: absolute;
+    width: 80px;
+    height: 30px;
+
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+    color: #000000;
+
+ }
+
+ .content-space{
+
+    display: flex;
+    justify-content: space-between;
+
+    
+
+}
+
+ .new-project {
+
+
+    background-color: #A3D080;
+ }
+
+ .new-donation {
+
+    margin-top: auto;
+
+    background-color: antiquewhite;
+ }
+
+
+ /* Chat containers */
+.container {
+
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  /* Darker chat container */
+  .darker {
+    border-color: #ccc;
+    background-color: #ddd;
+  }
+  
+  /* Clear floats */
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  
+  /* Style time text */
+  .time-right {
+    float: right;
+    color: #aaa;
+  }
+  
+
+  /*form*/
+
+  .openBtn {
+    display: flex;
+    justify-content: left;
+  }
+  .openButton {
+    border: none;
+    border-radius: 5px;
+    background-color: #1c87c9;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    position: fixed;
+  }
+  .loginPopup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .formPopup {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 5%;
+    transform: translate(-50%, 5%);
+    border: 3px solid #999999;
+    z-index: 9;
+  }
+  .formContainer {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+  }
+  .formContainer input[type=text],
+  .formContainer input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 20px 0;
+    border: none;
+    background: #eee;
+  }
+  .formContainer input[type=text]:focus,
+  .formContainer input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .formContainer .btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: #8ebf42;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 0.8;
+  }
+  .formContainer .cancel {
+    background-color: #cc0000;
+  }
+  .formContainer .btn:hover,
+  .openButton:hover {
+    opacity: 1;
+  }
