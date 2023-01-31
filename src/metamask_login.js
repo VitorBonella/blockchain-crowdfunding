@@ -4,8 +4,8 @@ import { listen_new_donations, listen_new_project, listen_withdraw } from "./Pro
 window.userWalletAddress = null
 const loginButton = document.getElementById('connect-button')
 
-
-const Project_Contract_Address = "0xEa6d3dFF7fa7CC85dA06e0dE49d64a9Ed6DBCf6d";
+//test contract ->0xEa6d3dFF7fa7CC85dA06e0dE49d64a9Ed6DBCf6d
+const Project_Contract_Address = "0xDEc32c3E2C246F0d7aAf6336a626748244a876A5";
 const Project_Contract_ABI = [
 	{
 		"anonymous": false,
