@@ -21,32 +21,9 @@
         <div class="content-space">
             <div class="new-donation">
                 Last Donations:
-                <div class="container">
-
-                    <p>Adress: 0x3242342. Just Donated 0.434 goerli to Any Project</p>
-                    <span class="time-right">11:00</span>
-                  </div>
-                  
-                  <div class="container darker">
-                    
-                    <p>Adress: 0x3242342. Just Donated 0.434 goerli to Any Project</p>
-                    <span class="time-right">11:01</span>
-                  </div>
-                  
-                  <div class="container">
-
-                    <p>Adress: 0x3242342. Just Donated 0.434 goerli to Any Project</p>
-                    <span class="time-right">11:02</span>
-                  </div>
-                  
-                  <div class="container darker">
-
-                    <p>Adress: 0x3242342. Just Donated 0.434 goerli to Any Project</p>
-                    <span class="time-right">11:05</span>
-                  </div>
-
-
             </div>
+
+            
             <div class="box-list">
             </div>
             <button class="new-project" onclick="openForm()">New Project</button>
@@ -65,8 +42,14 @@
                 <strong>Description</strong>
               </label>
               <input type="text" id="desc" placeholder="Your Project Description" name="desc" required>
+              <label for="end-donations">
+                <strong>End Donations</strong>
+              </label>
+              <input id="end-donations" type="datetime-local" name="end-donations"/>
+              <p>Max: 30 days Min: 1 hour</p>
               <button type="button" class="btn" id="submit-np">Create Project</button>
               <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
             </form>
           </div>
         </div>
@@ -75,7 +58,11 @@
 
 
     <script>
+      var now;
       function openForm() {
+        now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset() + 60);
+        document.getElementById('end-donations').value = now.toISOString().slice(0,16);
         document.getElementById("popupForm").style.display = "block";
       }
       function closeForm() {

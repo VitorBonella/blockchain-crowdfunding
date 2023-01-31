@@ -1,9 +1,31 @@
+import { listen_new_donations } from "./ProjectContractAPI.js";
+
+
 window.userWalletAddress = null
 const loginButton = document.getElementById('connect-button')
 
 
-const Project_Contract_Address = "0xc5F215C911269dcb4196F328CD552881853A8f1D";
+const Project_Contract_Address = "0x7408D263a3f24C4Ce66f6695311f61a26A2E8c4e";
 const Project_Contract_ABI = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "NewDonation",
+		"type": "event"
+	},
 	{
 		"inputs": [
 			{
@@ -28,6 +50,11 @@ const Project_Contract_ABI = [
 				"internalType": "string",
 				"name": "_description",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_duration",
+				"type": "uint256"
 			}
 		],
 		"name": "newProject",
@@ -83,6 +110,38 @@ const Project_Contract_ABI = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "project_addr",
+				"type": "address"
+			}
+		],
+		"name": "sendFundsToOwner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "project_addr",
+				"type": "address"
+			}
+		],
+		"name": "timeLeftContractUnlock",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "total_projects",
 		"outputs": [
@@ -124,7 +183,7 @@ async function loginWithMetaMask() {
       );
 
     loginButton.removeEventListener('click', loginWithMetaMask)
-
+	listen_new_donations()
 }
 
 
