@@ -84,9 +84,10 @@ export async function updateNoteList(project_list) {
         //se tiver aberto mostra
         if(infos[3]){
             let time_left = await get_time_left(project);
-
+            let over = false;
             if(time_left == undefined){
                 time_left = returnCollectButton(project_addr)
+                over = true
             }else{
                 time_left = secondsToDhms(time_left)
             }
@@ -98,11 +99,13 @@ export async function updateNoteList(project_list) {
                 donate(project);
             })
             
-            if(time_left == undefined){
+            if(over){
                 document.getElementById(project_addr).addEventListener('click', function(){
                     unlock(project);
                 })
             }
+            
+
         }
     }
 }
