@@ -1,4 +1,4 @@
-import { updateLastDonation } from "./ProjectView.js";
+import { updateAPP } from "./App.js";
 
 const image_url = document.getElementById('url-image')
 const description_text = document.getElementById('desc')
@@ -69,10 +69,25 @@ export async function get_time_left(address){
 
 export function listen_new_donations(){
 
-    console.log(ProjectContract)
 
     ProjectContract.on("NewDonation", function(sender, amount){
-        updateLastDonation()
+        updateAPP()
+    });
+
+}
+
+export function listen_new_project(){
+
+    ProjectContract.on("NewProject", function(sender, amount){
+        updateAPP()
+    });
+
+}
+
+export function listen_withdraw(){
+
+    ProjectContract.on("FundsSent", function(sender, amount){
+        updateAPP()
     });
 
 }

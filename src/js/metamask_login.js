@@ -1,12 +1,18 @@
-import { listen_new_donations } from "./ProjectContractAPI.js";
+import { listen_new_donations, listen_new_project, listen_withdraw } from "./ProjectContractAPI.js";
 
 
 window.userWalletAddress = null
 const loginButton = document.getElementById('connect-button')
 
 
-const Project_Contract_Address = "0x7408D263a3f24C4Ce66f6695311f61a26A2E8c4e";
+const Project_Contract_Address = "0xEa6d3dFF7fa7CC85dA06e0dE49d64a9Ed6DBCf6d";
 const Project_Contract_ABI = [
+	{
+		"anonymous": false,
+		"inputs": [],
+		"name": "FundsSent",
+		"type": "event"
+	},
 	{
 		"anonymous": false,
 		"inputs": [
@@ -24,6 +30,12 @@ const Project_Contract_ABI = [
 			}
 		],
 		"name": "NewDonation",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [],
+		"name": "NewProject",
 		"type": "event"
 	},
 	{
@@ -184,6 +196,8 @@ async function loginWithMetaMask() {
 
     loginButton.removeEventListener('click', loginWithMetaMask)
 	listen_new_donations()
+	listen_new_project()
+	listen_withdraw()
 }
 
 
