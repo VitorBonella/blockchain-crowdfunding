@@ -24,9 +24,10 @@ function _createBoxItemHTML(image, description, total_donated, address, full_add
                         <a class="box-desc">${description}</a>
                     </div>
                     <div class="info-space">
-                        <a class="box-info">Donated: ${total_donated}
-                            Address: ${address}
-                            Time Remain: ${time_left}
+                        <a class="box-info"><strong>Donated:</strong> ${total_donated}
+                            <strong>Address:</strong> ${address}
+                            <strong>Time Remain:</strong> 
+                            ${time_left}
                         </a>
                     </div>
                     <div class="btn-space">

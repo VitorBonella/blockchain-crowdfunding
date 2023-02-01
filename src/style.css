@@ -31,8 +31,6 @@ body {
 
 .texto-login {
 
-
-    
     font-family: 'Exo 2';
     font-style: normal;
     font-weight: 400;
@@ -46,8 +44,10 @@ body {
 
 .box-list {
 
-
     background-color:#E0DFDF;
+    height: 82vh;
+    overflow: auto;
+
 }
 
 .box {
@@ -105,15 +105,15 @@ body {
 
     white-space: pre-line;
 
-    top: 20%;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-
+    
     color: #000000;
+
+
 }
 
 .donate-btn{
@@ -127,6 +127,8 @@ body {
 
     background: #A3D080;
     border-radius: 20px;
+
+    cursor: pointer;
 }
 
 .image-space {
@@ -163,6 +165,8 @@ body {
 
 .desc-space {
 
+    max-height: 100px;
+    overflow: auto;
 
     grid-row-start: 1;
     grid-column-start: 1;
@@ -172,7 +176,8 @@ body {
     
  }
 .info-space {
- 
+
+    text-align: justify;
 
     grid-row-start: 2;
     grid-column-start: 1;
@@ -212,26 +217,27 @@ body {
 
  }
 
- .content-space{
+ .content-body{
 
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
-
-    
 
 }
 
  .new-project {
 
+    margin-top: auto;
 
     background-color: #A3D080;
+
  }
 
  .new-donation {
 
     margin-top: auto;
 
-    background-color: antiquewhite;
+    background-color:#E0DFDF;
  }
 
 
@@ -272,15 +278,17 @@ body {
     display: flex;
     justify-content: left;
   }
+
   .openButton {
     border: none;
     border-radius: 5px;
-    background-color: #1c87c9;
+    background: #393434;
     color: white;
-    padding: 14px 20px;
+    padding: 40px 40px;
     cursor: pointer;
-    position: fixed;
+    display: flex;
   }
+
   .loginPopup {
     position: relative;
     text-align: center;
@@ -289,21 +297,25 @@ body {
   .formPopup {
     display: none;
     position: fixed;
-    left: 45%;
-    top: 5%;
-    transform: translate(-50%, 5%);
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     border: 3px solid #999999;
     z-index: 9;
   }
+
   .formContainer {
-    max-width: 300px;
+    max-width: 400px;
     padding: 20px;
     background-color: #fff;
   }
+
   .formContainer input[type=text],
   .formContainer input[type=password] {
     width: 100%;
-    padding: 15px;
+    padding: 5px;
     margin: 5px 0 20px 0;
     border: none;
     background: #eee;
